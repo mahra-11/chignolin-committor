@@ -1,0 +1,29 @@
+# Configuration for WW domain trajectory analysis
+# All paths reference the NYU HPC filesystem.
+
+system: ww_domain
+
+# --- Trajectory data (on HPC cluster, not in this repo) ---
+# Full trajectory (GROMACS XTC format)
+trajectory_xtc:
+  - /scratch/ccbg/B_DNA-Folding/Chignolin_Miles/WW_domain_Traj/all_frames_ww_domain_pbc_alpC.xtc
+
+# Reference PDB topology (folded structure, used for PyEMMA featurization)
+topology_pdb: /scratch/ccbg/B_DNA-Folding/Chignolin_Miles/WW_domain_Traj/new_selected_traj/folded_21000_NEW_ww.pdb
+
+# --- Clustering ---
+# Cluster CSV with columns: Time, Cluster_ID
+# Produced by notebooks/01_clustering.ipynb
+# cluster_csv: data/ww_domain/clusters_with_folds_ww_0.75.csv
+
+# Cluster probability CSV with columns: Time, Cluster_ID, Committor_prob
+# Produced by notebooks/02_committor_counting.ipynb
+# cluster_prob_csv: data/ww_domain/clusters_with_folds_ww_0.75_prob.csv
+
+# --- Committor state definitions ---
+# Validated with cutoff = 0.75 contact map distance threshold
+folded_clusters:   [-1, 1]
+unfolded_clusters: [16]
+
+# --- Feature extraction ---
+stride: 1   # Load every frame (trajectory already downsampled)

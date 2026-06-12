@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Large data files — trajectories and cluster CSVs stay out of git
+data/
+*.xtc
+*.trr
+*.dcd
+*.nc
+
+# Results / generated figures (regenerate by running the notebooks)
+results/
+
+# Logs
+logs/
+*.out
+*.err
+slurm-*.out
+
+# OS
+.DS_Store
+Thumbs.db

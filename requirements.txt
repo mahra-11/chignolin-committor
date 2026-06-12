@@ -1,0 +1,17 @@
+# Core MD analysis
+pyemma==2.5.12
+mdtraj==1.9.9
+biopython==1.81
+deeptime==0.4.4
+
+# Machine learning
+lightgbm==4.6.0
+scikit-learn==1.6.1
+shap==0.47.2
+
+# Data & plotting
+numpy==2.0.2
+pandas==2.3.3
+matplotlib==3.9.4
+scipy==1.13.1
+pyyaml==6.0.2

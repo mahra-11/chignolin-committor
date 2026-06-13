@@ -163,9 +163,3 @@ Top features involve contacts between the three β-strands, analogous to the Chi
 | `src/plot_importances.py` | `plot_importances / plot_shap / plot_true_vs_pred` | Save analysis figures |
 | `src/contours.py` | `plot_contours / plot_free_energy_2d` | Free energy + committor visualizations |
 
----
-
-## Citation / Acknowledgements
-
-Trajectory data provided by the [Chodera Lab](https://github.com/choderalab) / NYU NYUAD HPC facility.  
-Analysis by M. Mashrafi (NYU, mmm9886@nyu.edu).

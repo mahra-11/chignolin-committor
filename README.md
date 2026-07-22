@@ -78,36 +78,6 @@ chignolin-committor/
 
 ---
 
-## Q/Rg Committor (no clustering)
-
-`src/qrg_committor.py` + `scripts/run_qrg_committor.py` implement the
-alternative committor estimate described in the project presentation
-("Changing to Q"). Clustering turned out to (a) lump geometrically distinct
-conformers into the same cluster and (b) get dominated by the folded state,
-requiring an RMSD filter that discarded >60% of frames. This method instead:
-
-1. Computes two continuous order parameters per frame — **Q** (fraction of
-   native contacts, Best et al. 2013 smoothed formula) and **Rg** (radius of
-   gyration) — with no clustering step at all.
-2. Bins frames onto a 2D (Rg, Q) grid.
-3. Labels each frame with a **visit-based** first-passage rule: walking
-   forward along the trajectory, does it hit the folded boundary
-   (Q ≥ 0.9 by default) or the unfolded boundary (Q ≤ 0.1) first?
-4. Averages the per-frame labels within each grid box to get a box-level
-   committor estimate, then trains a regressor (`GradientBoostingRegressor`)
-   to predict it from (Rg, Q).
-
-```bash
-python scripts/run_qrg_committor.py --config config/chignolin.yaml
-```
-
-Outputs land in `results/`: `figure6_qrg_heatmap.png` (frame-count heat map,
-reproducing Figure 6), `figure7_committor_histogram.png` (committor-value
-histogram weighted by frame count, reproducing Figure 7), the per-frame and
-per-box CSVs, and the trained model.
-
----
-
 ## Data
 
 Trajectory data lives on the **NYU NYUAD HPC cluster** and is not stored in this repository.  
